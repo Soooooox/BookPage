@@ -1,0 +1,31 @@
+[
+    {
+        "img_path":"柊家吸血鬼事件1.jpg",	
+        "title":"柊家吸血鬼事件",
+        "total_vol":3,
+        "reading_vol":2,
+        "published_year":2022,
+        "serial_status":"连载",
+        "classification":"单行本原作漫画",
+        "type":"吸血鬼",
+        "author":"吉河美希",
+        "reading_status":"等待资源",
+        "evaluate":"好作品",
+        "comment":"普通恋爱后宫"
+    },
+    
+    {
+        "img_path":"累1.jpg",
+        "title":"累",
+        "total_vol":14,
+        "reading_vol":0,
+        "published_year":2013,
+        "serial_status":"完结",
+        "classification":"单行本原作漫画",
+        "type":"霸凌",
+        "author":"松浦だるま",
+        "reading_status":"阅读中",
+        "evaluate":"好作品",
+        "comment":"正在观看中..."
+    }
+]
