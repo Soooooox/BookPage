@@ -11,106 +11,112 @@
 
 <body>
 <main class="content">
-     <!--==================== HEADER & NAV ====================-->
+<!--==================== HEADER & NAV ====================-->
   <header class="header" id="header">
     <nav class="nav container">
-      <a href="#" class="nav-log">
+      <!-- 导航LOGO -->
+      <button class="nav-logo" onclick="change_bookpage()">
         <i class="ri-book-3-line"></i>Book
-      </a>
-
+      </button>
+      <!-- 导航菜单 -->
       <div class="nav-menu">
         <ul class="nav-list">
+          <!-- 4个导航列表 -->
           <li class="nav-item">
-            <a href="manga.html" class="nav-link">
+            <button class="nav-link" onclick="change_manga()">
               <i class="ri-book-line"></i>
               <span>漫画</span>
-            </a>
+            </button>
           </li>
 
           <li class="nav-item">
-            <a href="light-novel.html" class="nav-link">
+            <button class="nav-link" onclick="change_light_novel()">
               <i class="ri-book-line"></i>
               <span>轻小说</span>
-            </a>
+            </button>
           </li>
 
           <li class="nav-item">
-            <a href="novel.html" class="nav-link">
+            <button class="nav-link" onclick="change_novel()">
               <i class="ri-book-line"></i>
               <span>小说</span>
-            </a>
+            </button>
           </li>
 
           <li class="nav-item">
-            <a href="tool.html" class="nav-link">
+            <button class="nav-link" onclick="change_tool()">
               <i class="ri-book-line"></i>
               <span>理论实践</span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
-
+      <!-- 导航操作 -->
       <div class="nav-actions">
         <!-- search buttion -->
+        <!-- 搜索按钮 -->
         <i class="ri-search-line search-button" id="search-button"></i>
+        <!-- 主页按钮 -->
         <i class="ri-home-2-line home-button" id="home-button"></i>
       </div>
     </nav>
-</header>
+  </header>
 
 <!--==================== SEARCH ====================-->
-<div class="search" id="search-content">
-  <form action="" class="search-form">
-    <i class="ri-search-line search-icon"></i>
-    <input type="search" placeholder="What are you looking for?" class="search-input">
-
-    <i class="ri-close-line search-close" id="search-close"></i>
-  </form>
-</div>
-
-<!--==================== MAIN ====================-->
-<main class="main">
-  <!--==================== HOME ====================-->
-  <section class="book section" id="book">
-      <h2 class="section-title active-link" id="section-title">
-        Reading... 
-      </h2>
-
-      <div class="book-container container" id="book-container">
-        <!-- <div class="row">
-          <div class="column">
-            <div class="book-card">
-              <center><img src="/content/book/cover/累1.jpg" alt="img" id="img" class="book-img"></center>
-              <h2 class="book-title">累</h2>
-            </div>
-          </div>
-        </div> -->
-      </div>
-
-  </section>
-</main>
-  <!--==================== DETAIL ====================-->
-  <div class="book-detail" id="book-detail">
-    <div class="info" id="info">
-      <!-- <h2 class="title">累</h2>
-      <div class="total-vol">总共卷数: 14</div>
-      <div class="reading-vol">已读卷数: 0</div>
-      <div class="published-year">出版年代: 2013</div>
-      <div class="serial-status">连载状态: 完结</div>
-      <div class="classification">分类: 单行本原作漫画</div>
-      <div class="type">类型: 霸凌</div>
-      <div class="author">作者: 松浦だるま</div>
-      <div class="reading-status">阅读状态: 阅读中</div>
-      <div class="evaluate">作品评价: 好作品</div>
-      <div class="comment">作品评论: 正在观看中</div> -->
-    </div>
-    <i class="ri-close-line detail-close" id="detail-close"></i>
+  <div class="search" id="search-content">
+    <form action="" class="search-form">
+      <i class="ri-search-line search-icon"></i>
+      <input type="search" placeholder="What are you looking for?" class="search-input">
+      <i class="ri-close-line search-close" id="search-close"></i>
+    </form>
   </div>
 
+<!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== HOME ====================-->
+    <section class="book section" id="book">
+        <!-- 标题栏 -->
+        <h2 class="section-title active-link" id="section-title">
+          Reading... 
+        </h2>
+        <!-- 卡片内容 -->
+        <div class="book-container container" id="book-container">
+          <!-- 卡片模板 -->
+          <!-- <div class="row">
+            <div class="column">
+              <div class="book-card">
+                <center><img src="/content/book/cover/累1.jpg" alt="img" id="img" class="book-img"></center>
+                <h2 class="book-title">累</h2>
+              </div>
+            </div>
+          </div> -->
+        </div>
+    </section>
+  </main>
+
+  <!--==================== DETAIL ====================-->
+    <div class="book-detail" id="book-detail">
+      <div class="info" id="info">
+        <!-- <h2 class="title">累</h2>
+        <div class="total-vol">总共卷数: 14</div>
+        <div class="reading-vol">已读卷数: 0</div>
+        <div class="published-year">出版年代: 2013</div>
+        <div class="serial-status">连载状态: 完结</div>
+        <div class="classification">分类: 单行本原作漫画</div>
+        <div class="type">类型: 霸凌</div>
+        <div class="author">作者: 松浦だるま</div>
+        <div class="reading-status">阅读状态: 阅读中</div>
+        <div class="evaluate">作品评价: 好作品</div>
+        <div class="comment">作品评论: 正在观看中</div> -->
+      </div>
+      <i class="ri-close-line detail-close" id="detail-close"></i>
+    </div>
+
 <!--========== SCROLL UP ==========-->
-<a href="#" class="scrollup" id="scroll-up">
-  <i class="ri-arrow-up-line"></i>
-</a>
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-line"></i>
+  </a>
+
 </main>
 
 

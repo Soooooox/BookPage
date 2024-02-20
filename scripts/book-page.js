@@ -3,14 +3,14 @@ const searchButton = document.getElementById('search-button'),
       searchClose = document.getElementById('search-close'),
       searchContent = document.getElementById('search-content')
 
-/* Menu show */
+/* Search show */
 if(searchButton){
   searchButton.addEventListener('click', () =>{
         searchContent.classList.add('show-search')
     })
 }
 
-/* Menu hidden */
+/* Search hidden */
 if(searchClose){
   searchClose.addEventListener('click', () =>{
     searchContent.classList.remove('show-search')
@@ -73,28 +73,34 @@ sr.reveal('.book-container',{delay: 300})
 /*=============== CREATE HTML ===============*/
 const IMG_PATH = './images/cover/';
 
+// 固定元素
 const container = document.getElementById("book-container");
 const detailClose = document.getElementById('detail-close')
 const detailContent = document.getElementById('book-detail')
 const info = document.getElementById('info')
 
-fetch('./db/manga.json')
-  .then(response => response.json())
-  .then(data => {
-    // console.log(data);
-    data.forEach(element => {
-      if (element.reading_status == "阅读中") {
+// 进入书的主页刷新
+change_bookpage();
+// 返回主界面
+const homebutton = document.getElementById('home-button');
 
-        const div_row = document.createElement('div');
+homebutton.addEventListener(
+  'click', () =>{
+    window.location.href = "https://soooooox.github.io/HomePage/"
+  }
+)
+// 创建卡片函数
+function createCard(element){
+				const div_row = document.createElement('div');
         div_row.setAttribute('class', 'row');
-		div_row.setAttribute('id', 'row');
+		    div_row.setAttribute('id', 'row');
 
         const div_column = document.createElement('div');
         div_column.setAttribute('class', 'column');
 
         const div_card = document.createElement('div');
         div_card.setAttribute('class', 'book-card');
-		div_card.setAttribute('id', 'book-card');
+		    div_card.setAttribute('id', 'book-card');
 
         const center = document.createElement('center');
 
@@ -114,8 +120,63 @@ fetch('./db/manga.json')
         div_card.appendChild(center);
         center.appendChild(image);
         div_card.appendChild(title);
+				return div_card;
+}
+// 刷新页面
+function changepage(db_path,page_name){
+	const sectiontitle = document.getElementById('section-title');
+	container.innerHTML = '';
+	sectiontitle.innerText = page_name;
+	fetch(db_path)
+		.then(response => response.json())
+		.then(data => {
+			data.forEach(element => {
+				div_card = createCard(element);
+				mangaDetail(element,div_card);
+			});
+		})
+}
+// 刷新书的主页
+function changereading(db_path){
+	fetch(db_path)
+		.then(response => response.json())
+		.then(data => {
+			data.forEach(element => {
+				if (element.reading_status == "阅读中") {
+					div_card = createCard(element);
+					mangaDetail(element,div_card);
+				}
+			});
+		})
+}
+function change_bookpage(){
+	const sectiontitle = document.getElementById('section-title');
+	container.innerHTML = '';
+	sectiontitle.innerText = "Reading......";
+	changereading('./db/manga.json');
+	changereading('./db/light-novel.json');
+	changereading('./db/novel.json');
+	changereading('./db/tool.json');
+}
+// 刷新漫画页面
+function change_manga(){
+	changepage('./db/manga.json',"漫画");
+}
+// 刷新轻小说页面
+function change_light_novel(){
+	changepage('./db/light-novel.json',"轻小说");
+}
+// 刷新小说页面
+function change_novel(){
+	changepage('./db/novel.json',"小说");
+}
+// 刷新工具书页面
+function change_tool(){
+	changepage('./db/tool.json',"理论与实践");
+}
 
-
+// 漫画信息
+function mangaDetail(element,div_card){
 		/* Detail show */
 		// 信息
 		const infotitle = document.createElement('h2');
@@ -172,8 +233,7 @@ fetch('./db/manga.json')
 		comment.setAttribute('class', 'detail');
 		comment.innerHTML = "作品评论: " + `${element.comment}`;
 
-
-		
+		// 添加元素之间链接
 		if(div_card){
 			div_card.addEventListener('click', () =>{
 				info.appendChild(infotitle);
@@ -191,32 +251,11 @@ fetch('./db/manga.json')
 
 			})
 		}
-
 		/* Detail hidden */
 		if(detailClose){
 			detailClose.addEventListener('click', () =>{
 				detailContent.classList.remove('show-detail');
-				info.removeChild(infotitle);
-				info.removeChild(totalvol);
-				info.removeChild(readingvol);
-				info.removeChild(publishedyear);
-				info.removeChild(serialstatus);
-				info.removeChild(classf);
-				info.removeChild(type);
-				info.removeChild(author);
-				info.removeChild(readingstatus);
-				info.removeChild(evaluate);
-				info.removeChild(comment);
+				info.innerHTML = '';
 			})
 		}
-      };
-	 
-    });
-  })
-
-const homebutton = document.getElementById('home-button');
-
-homebutton.addEventListener(
-  'click', () =>{
-    window.location.href = "https://soooooox.github.io/HomePage/"
-  })
+}

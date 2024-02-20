@@ -154,8 +154,12 @@ img {
   column-gap: .5rem;
   color: var(--first-color);
   font-weight: var(--font-medium);
+  background-color: transparent;
 }
-
+.nav-logo:hover{
+  color: var(--first-color);
+  cursor: pointer;
+}
 .nav-logo i{
   font-size: 1.25rem;
 }
@@ -179,13 +183,16 @@ img {
   display: flex;
   justify-content: space-between;
 }
-
+.nav-list li:hover{
+  color: var(--first-color);
+}
 .nav-link{
   display: flex;
   flex-direction: column;
   color: var(--text-color);
   transition: color .4s;
   align-items: center;
+  background-color: transparent;
 }
 
 .now-nav i,
@@ -202,6 +209,7 @@ img {
 
 .nav-link:hover{
   color: var(--first-color);
+  cursor: pointer;
 }
 
 .nav-actions{
